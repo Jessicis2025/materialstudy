@@ -1,0 +1,45 @@
+---
+title: "materialstudy"
+---
+
+
+This website is a student project that explores the possibilities of graphing using ggplot2 in rstudio. The data used was sourced from the "Dutch Textile Trade" digital project. You can visit the project [here](https://dutchtextiletrade.org/).
+
+```{r, include=FALSE}
+read.csv("full_textile_data.csv")
+dtd <- read.csv("full_textile_data.csv")
+```
+
+The data contained in the Data Set tracks the trade of textiles from 1699 to 1724. It records variables such as quantities, dates, total cost, and textile type. 
+
+For this project I will be plotting total cost of textiles traded over time. The figure below plots this using a default geom_point graph. This is a good start, however the format can be improved.
+
+```{r}
+library(ggplot2)
+ggplot(data = dtd,
+       mapping = aes(x = dest_yr,
+           y = total_value)) +
+        geom_point()
+```
+
+In this graph the visualization is improved with the usage of a bar graph. However, there are issues with the scale and the readability. Ggplot cannot successfully read the "total value" column in the original excel sheet.
+
+```{r}
+ggplot(data = dtd,
+       mapping = aes(x = dest_yr,
+             y = total_value)) +
+             geom_col(fill="steelblue")
+```
+
+Defining the x axis as continuous modifies the data to make it legible to ggplot. However, this graph is still not communicating the data in a useful way.
+
+
+```{r}
+ggplot(data = dtd,
+        mapping = aes(y = factor(dest_yr),
+              x = total_value)) +
+              geom_col(fill = "steelblue") +
+   scale_x_continuous(labels = scales::label_comma())
+```
+
+

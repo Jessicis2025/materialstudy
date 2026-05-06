@@ -1,0 +1,24 @@
+project:
+  type: website
+
+website:
+  title: "materialstudy"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme:
+      - sandstone
+      - brand
+    css: styles.css
+    toc: false
+    
+execute:
+  freeze: auto
+
+
+
