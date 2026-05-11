@@ -43,3 +43,14 @@ ggplot(data = dtd,
 ```
 
 
+Here, the filter function is used to display total cost over time for one specific textile called "adathaies"
+
+```{r}
+dtd |>
+ filter(textile_name == "adathaies") |>
+   ggplot(mapping = aes(y = factor(dest_yr),
+                        x = total_value)) +
+   geom_col(fill = "steelblue") +
+   scale_x_continuous(labels = scales::label_comma())
+```
+
