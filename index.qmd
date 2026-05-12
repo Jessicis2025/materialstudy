@@ -8,6 +8,8 @@ This website is a student project that explores the possibilities of graphing us
 ```{r, include=FALSE}
 read.csv("full_textile_data.csv")
 dtd <- read.csv("full_textile_data.csv")
+library(ggplot2)
+library(dplyr)
 ```
 
 The data contained in the Data Set tracks the trade of textiles from 1699 to 1724. It records variables such as quantities, dates, total cost, and textile type. 
