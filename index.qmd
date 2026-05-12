@@ -1,5 +1,5 @@
 ---
-title: "materialstudy"
+title: "material study"
 ---
 
 
@@ -22,7 +22,17 @@ ggplot(data = dtd,
         geom_point()
 ```
 
-In this graph the visualization is improved with the usage of a bar graph. However, there are issues with the scale and the readability. Ggplot cannot successfully read the "total value" column in the original excel sheet.
+Line graphs can be effective at showing change over time. The figure below shows a graph using geom_line rather than the geom_point function. However, this clearly is still not useful for visualizing the data. The line is cramped at the beginning, and the actual changes in the line doesn't make sense.
+
+```{r}
+ dtd |>
+   ggplot(mapping = aes(y = dest_yr,
+                        x = total_value)) +
+                   geom_line()
+```
+
+
+In this figure the visualization is improved with the usage of a bar graph. However, there are issues with the scale and the readability. Ggplot cannot successfully read the "total value" column in the original excel sheet, and the bars also feel cramped and dificult to read.
 
 ```{r}
 ggplot(data = dtd,
@@ -43,7 +53,9 @@ ggplot(data = dtd,
 ```
 
 
-Here, the filter function is used to display total cost over time for one specific textile called "adathaies"
+This figure finally presents legible information. The years are defined and it is clear what kinds of changes are occurring over time. In order to accomplish this I used the filter function to display total cost over time for one specific textile called "adathaies".
+
+
 
 ```{r}
 dtd |>
@@ -53,4 +65,6 @@ dtd |>
    geom_col(fill = "steelblue") +
    scale_x_continuous(labels = scales::label_comma())
 ```
+
+Something important to note is that while the graph above is effective at visualizing this specific data set, this does not indicate that there is one specific way that data should be graphed or plotted. By documenting my process for this project, I hope to showcase that graphing is not a one-step activity, but rather a process that requires experimentation and trial and error.
 

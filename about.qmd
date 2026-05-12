@@ -2,8 +2,12 @@
 title: "About"
 ---
 
-About this site
+This website is a student project that explores the possibilities of graphing using ggplot2 in rstudio. The data used was sourced from the "Dutch Textile Trade" digital project. You can visit the project [here](https://dutchtextiletrade.org/).
+
+It is titled "material study" as a reference to the data covering textile history, as well as a reference to exploring the possibilities and limitations of a medium.
+
+This is an ongoing project that will incorporate new data sets and methodologies in the future. 
 
 ```{r}
-1 + 1
+
 ```
